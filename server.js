@@ -13,6 +13,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+// This section handles all routing. Requests are sent from the server to these files, listed above in lines 4 and 5
 app.use('/', homeRoutes)
 app.use('/todos', todoRoutes)
  

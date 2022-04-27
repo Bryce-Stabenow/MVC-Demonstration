@@ -10,8 +10,10 @@
 <body>
     <h1>Todos</h1>
     <ul>
+        <!-- Grabs each el from the todos array, passed in from the get request in the todos.jc controller -->
     <% todos.forEach( el => { %>
         <li class='todoItem' data-id='<%=el._id%>'>
+            <!-- Conditional that adjusts the class of the span to match if the data is completed or not -->
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
             <span class='del'> Delete </span>
         </li>

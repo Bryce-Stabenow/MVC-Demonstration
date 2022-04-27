@@ -1,8 +1,11 @@
 const Todo = require('../models/Todo')
 
+//Once a route sends a request, it is sent to this file which calls methods for different functions. If the .getTodos method is called, this object's getTodos methos runs, launching an async request.
+
 module.exports = {
     getTodos: async (req,res)=>{
         try{
+            //This calls on the Todo model in the models folder to make a request to the server using mongoose. (see Todo.js)
             const todoItems = await Todo.find()
             const itemsLeft = await Todo.countDocuments({completed: false})
             res.render('todos.ejs', {todos: todoItems, left: itemsLeft})
